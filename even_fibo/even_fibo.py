@@ -68,17 +68,17 @@ class Fibo(object):
 
 
 if __name__ == "__main__":
-    fibolistobj = Fibo(1, 2)
-    fl = fibolistobj.createFibolist(10)
-    print fl
-
-    fibolistobj2 = Fibo(1, 2)
-    fl2 = fibolistobj2.createFibolistbyValue(4000000)
-    print fl2
-
-    fibolisteven = Fibo(1, 2)
-    fl3 = fibolisteven.evenFibolist(4000000)
-    print fl3
+    # fibolistobj = Fibo(1, 2)
+    # fl = fibolistobj.createFibolist(10)
+    # print fl
+    #
+    # fibolistobj2 = Fibo(1, 2)
+    # fl2 = fibolistobj2.createFibolistbyValue(4000000)
+    # print fl2
+    #
+    # fibolisteven = Fibo(1, 2)
+    # fl3 = fibolisteven.evenFibolist(4000000)
+    # print fl3
 
     fibolistsum = Fibo(1, 2)
     fl4 = fibolistsum.evenFiboSum(4000000)
