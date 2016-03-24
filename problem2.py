@@ -55,6 +55,7 @@ class Fibo(object):
         return fibolist
 
     def evenFibolist(self, value_limit):
+        """Create a list of even Fibonacci numbers up to value_limit"""
         fibolisteven = Fibo.createFibolistbyValue(self, value_limit)
         for oddnumber in fibolisteven[:]:
             if oddnumber % 2 != 0:
@@ -62,6 +63,7 @@ class Fibo(object):
         return fibolisteven
 
     def evenFiboSum(self, value_limit):
+        """Create the sum of all even Fibonacci numbers up to value_limit"""
         evensumlist = Fibo.evenFibolist(self, value_limit)
         evensum = sum(evensumlist)
         return evensum
