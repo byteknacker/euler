@@ -5,38 +5,81 @@
 
 Classes:
 
-Fibo(base1, base2, index_limit):
+Fibo(base1, base2):
     base1: the first base number of the Fibonacci series
     base2: the second base number of the Fibonacci series
-    index_limit: the maximum number of elements in the list of
-    Fibonacci series
 
     Methods of Fibo:
 
-    createFibolist()
-        Create a list of Fibonacci numbers with "2 + index_limit"
-        elements, where index_limit is an argument of Fibo.
+    createFibolist(index_limit):
+        Create a list of Fibonacci numbers with index_limit elements
+
+        index_limit: the maximum number of elements in the list of
+        Fibonacci series
+
+    createFibolistbyValue(value_limit):
+        Create a list of Fibonacci numbers where the last element is
+        less or equal to value_limit
+
+        value_limit: the maximum allowed value for the last element
+        in the list of Fibonacci numbers
 """
 
 
 class Fibo(object):
     """Fibonacci series generator"""
-    def __init__(self, base1, base2, index_limit):
+    def __init__(self, base1, base2):
         self.base1 = base1
         self.base2 = base2
-        self.index_limit = index_limit
 
-    def createFibolist(self):
-        """Create a list of Fibonacci series up to a limit"""
+    def createFibolist(self, index_limit):
+        """Create a list of Fibonacci series up to an index limit"""
         fibolist = [self.base1, self.base2]
         iterator = 0
-        while iterator < self.index_limit:
+        while iterator < index_limit - 2:
             nextbase = fibolist[0 + iterator] + fibolist[1 + iterator]
             fibolist.append(nextbase)
             iterator += 1
         return fibolist
 
+    def createFibolistbyValue(self, value_limit):
+        """Create a list of Fibonacci numbers: last element <= value_limit"""
+        fibolist = [self.base1, self.base2]
+        iterator = 0
+        nextbase = 0
+        while nextbase < value_limit:
+            nextbase = fibolist[0 + iterator] + fibolist[1 + iterator]
+            fibolist.append(nextbase)
+            iterator += 1
+        fibolist.pop(-1)
+        return fibolist
+
+    def evenFibolist(self, value_limit):
+        fibolisteven = Fibo.createFibolistbyValue(self, value_limit)
+        for oddnumber in fibolisteven[:]:
+            if oddnumber % 2 != 0:
+                fibolisteven.remove(oddnumber)
+        return fibolisteven
+
+    def evenFiboSum(self, value_limit):
+        evensumlist = Fibo.evenFibolist(self, value_limit)
+        evensum = sum(evensumlist)
+        return evensum
+
+
 if __name__ == "__main__":
-    fibolistobj = Fibo(1, 2, 10)
-    fl = fibolistobj.createFibolist()
+    fibolistobj = Fibo(1, 2)
+    fl = fibolistobj.createFibolist(10)
     print fl
+
+    fibolistobj2 = Fibo(1, 2)
+    fl2 = fibolistobj2.createFibolistbyValue(4000000)
+    print fl2
+
+    fibolisteven = Fibo(1, 2)
+    fl3 = fibolisteven.evenFibolist(4000000)
+    print fl3
+
+    fibolistsum = Fibo(1, 2)
+    fl4 = fibolistsum.evenFiboSum(4000000)
+    print fl4
