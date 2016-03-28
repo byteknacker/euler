@@ -83,5 +83,5 @@ if __name__ == "__main__":
     # print fl3
 
     fibolistsum = Fibo(1, 2)
-    fl4 = fibolistsum.evenFiboSum(4000000)
+    fl4 = fibolistsum.createFibolist(1000)
     print fl4
