@@ -1,11 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 import math
-
-""" Solution to Project Euler's Problem 7: 10001st Prime
-"""
-
 
 class PrimeNumbers(object):
     def __init__(self):
@@ -36,25 +29,3 @@ class PrimeNumbers(object):
             test_integer += 1
             index_j = len(listofprimes)
         return listofprimes
-
-    def lastPrimeinList(self, index_limit):
-        listprimes = self.primeList(index_limit)
-        lastprime = listprimes.pop(-1)
-        return lastprime
-
-    def lastPrime(self, index_limit):
-        test_integer = 3
-        index_j = 0
-        while index_j < index_limit:
-            state = self.determinePrime(test_integer)
-            if state is True:
-                index_j += 1
-            else:
-                pass
-            test_integer += 1
-        result_integer = test_integer - 1
-        return result_integer
-
-if __name__ == "__main__":
-    prime = PrimeNumbers()
-    print(prime.primeList(100))
